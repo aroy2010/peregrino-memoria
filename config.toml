@@ -1,0 +1,18 @@
+baseURL = 'https://aroy1962.xyz'
+languageCode = 'es-PE'
+title = 'Peregrino de la Memoria'
+paginate = 10
+
+[params]
+  description = 'Viaje a través del tiempo que vive en la memoria'
+  author = 'Adriel Olórtegui Yzú'
+
+[menu]
+  [[menu.main]]
+    name = "Inicio"
+    url = "/"
+    weight = 1
+  [[menu.main]]
+    name = "Acerca"
+    url = "/acerca/"
+    weight = 2
