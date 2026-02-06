@@ -18,3 +18,4 @@ title = 'Peregrino de la Memoria'
     name = "Acerca"
     url = "/acerca/"
     weight = 2
+ignoreFiles = ["functions/**"]
