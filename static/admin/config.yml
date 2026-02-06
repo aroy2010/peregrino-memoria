@@ -1,15 +1,11 @@
 backend:
-  name: aroy2010/peregrino-memoria
-  branch: main  # o 'master'
-media_folder: "static/images/uploads"
-public_folder: "/images/uploads"
+  name: git-gateway
+  branch: main
 collections:
   - name: "posts"
     label: "Posts"
     folder: "content/posts"
     create: true
-    slug: "{{year}}/{{month}}/{{slug}}"
     fields:
       - {label: "Title", name: "title", widget: "string"}
       - {label: "Body", name: "body", widget: "markdown"}
-      - {label: "Date", name: "date", widget: "datetime"}
