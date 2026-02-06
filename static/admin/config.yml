@@ -2,17 +2,17 @@ backend:
   name: git-gateway
   branch: main
 
-media_folder: "static/images/uploads"  # ¡REQUERIDO!
-public_folder: "/images/uploads"       # ¡REQUERIDO!
+media_folder: "static/images/uploads"
+public_folder: "/images/uploads"
+
+# OAuth endpoint explícito Functions
+auth_endpoint: "/api/auth"
 
 collections:
-  - name: "posts"
-    label: "Posts > Peregrino Memoria"
+  - name: "posts"  # Su ejemplo
+    label: "Posts"
     folder: "content/posts"
     create: true
-    slug: "{{year}}/{{slug}}"
     fields:
-      - {label: "Título", name: "title", widget: "string"}
-      - {label: "Fecha", name: "date", widget: "datetime"}
-      - {label: "Cuerpo", name: "body", widget: "markdown"}
-      - {label: "Imagen Destacada", name: "image", widget: "image"}
+      - {label: "Title", name: "title", widget: "string"}
+      - {label: "Body", name: "body", widget: "markdown"}
