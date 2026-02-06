@@ -1,17 +1,18 @@
 backend:
-  name: test-repo  # LOCAL, no Git/OAuth needed
+  name: test-repo  # LOCAL NO NETLIFY/Cloudflare deps
 
 media_folder: "static/images/uploads"
 public_folder: "/images/uploads"
 
 collections:
   - name: "posts"
-    label: "Posts Peregrino"
+    label: "Artículos"
     folder: "content/posts"
     create: true
-    slug: "{{year}}/{{slug}}"
+    slug: "{{year}}/{{month}}/{{slug}}"
     fields:
       - {label: "Título", name: "title", widget: "string"}
+      - {label: "Descripción", name: "description", widget: "text"}
       - {label: "Fecha", name: "date", widget: "datetime"}
-      - {label: "Cuerpo", name: "body", widget: "markdown"}
-      - {label: "Imagen", name: "image", widget: "image", allow_multiple: false}
+      - {label: "Imagen", name: "image", widget: "image"}
+      - {label: "Contenido", name: "body", widget: "markdown"}
