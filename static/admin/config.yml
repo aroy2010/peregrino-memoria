@@ -1,11 +1,18 @@
 backend:
   name: git-gateway
   branch: main
+
+media_folder: "static/images/uploads"  # ¡REQUERIDO!
+public_folder: "/images/uploads"       # ¡REQUERIDO!
+
 collections:
   - name: "posts"
-    label: "Posts"
+    label: "Posts > Peregrino Memoria"
     folder: "content/posts"
     create: true
+    slug: "{{year}}/{{slug}}"
     fields:
-      - {label: "Title", name: "title", widget: "string"}
-      - {label: "Body", name: "body", widget: "markdown"}
+      - {label: "Título", name: "title", widget: "string"}
+      - {label: "Fecha", name: "date", widget: "datetime"}
+      - {label: "Cuerpo", name: "body", widget: "markdown"}
+      - {label: "Imagen Destacada", name: "image", widget: "image"}
