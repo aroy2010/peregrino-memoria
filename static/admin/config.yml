@@ -2,17 +2,15 @@ backend:
   name: git-gateway
   branch: main
 
-media_folder: "static/images/uploads"
-public_folder: "/images/uploads"
-
-# OAuth endpoint explícito Functions
-auth_endpoint: "/api/auth"
+media_folder: static/images/uploads
+public_folder: /images/uploads
 
 collections:
-  - name: "posts"  # Su ejemplo
+  - name: "posts"
     label: "Posts"
     folder: "content/posts"
     create: true
+    slug: "{{year}}/{{slug}}"
     fields:
       - {label: "Title", name: "title", widget: "string"}
       - {label: "Body", name: "body", widget: "markdown"}
