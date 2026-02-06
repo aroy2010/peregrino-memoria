@@ -3,39 +3,49 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Peregrino de la Memoria - Admin</title>
-  <script src="https://unpkg.com/decap-cms@^3.3.5/dist/decap-cms.js"></script>
-  <style>
-    body { font-family: system-ui, sans-serif; padding: 2rem; }
-    #app { max-width: 1200px; margin: 0 auto; }
-  </style>
+  <title>Peregrino Admin</title>
 </head>
 <body>
-  <div id="app"></div>
+  <div id="nc-root"></div>
   
+  <script src="https://unpkg.com/decap-cms@3.3.5/dist/decap-cms.js"></script>
   <script>
-    window.CMS_MANUAL_INIT = true;
-    CMS.init({
-      config: {
-        backend: {
-          name: 'github',
-          repo: 'aroy2010/peregrino-memoria',
-          branch: 'main'
-        },
-        media_folder: 'static/img',
-        public_folder: '/img',
-        collections: [{
-          name: 'pages',
-          label: 'Pages',
-          folder: 'content',
-          create: true,
-          fields: [
-            { label: 'Title', name: 'title', widget: 'string' },
-            { label: 'Body', name: 'body', widget: 'markdown' }
+    window.onload = function() {
+      CMS.init({
+        config: {
+          backend: {
+            name: "github",
+            repo: "aroy2010/peregrino-memoria",
+            branch: "main"
+          },
+          media_folder: "static/img",
+          public_folder: "/img",
+          collections: [
+            {
+              name: "pages",
+              label: "Pages",
+              folder: "content",
+              create: true,
+              fields: [
+                { label: "Title", name: "title", widget: "string" },
+                { label: "Body", name: "body", widget: "markdown" }
+              ]
+            },
+            {
+              name: "posts",
+              label: "Posts",
+              folder: "content/posts",
+              create: true,
+              fields: [
+                { label: "Title", name: "title", widget: "string" },
+                { label: "Publish Date", name: "date", widget: "datetime" },
+                { label: "Body", name: "body", widget: "markdown" }
+              ]
+            }
           ]
-        }]
-      }
-    });
+        }
+      });
+    };
   </script>
 </body>
 </html>
