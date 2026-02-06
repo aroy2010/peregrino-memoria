@@ -4,37 +4,29 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Peregrino Admin</title>
+  <script src="https://unpkg.com/decap-cms@3.0.12/dist/decap-cms.js"></script>
 </head>
 <body>
   <div id="nc-root"></div>
-  
-  <script src="https://unpkg.com/decap-cms@3.0.12/dist/decap-cms.js"></script>
   <script>
-    document.addEventListener('DOMContentLoaded', function() {
-      if (typeof CMS !== 'undefined') {
-        CMS.init({
-          config: {
-            backend: {
-              name: 'github',
-              repo: 'aroy2010/peregrino-memoria',
-              branch: 'main'
-            },
-            media_folder: 'static/img',
-            public_folder: '/img',
-            collections: [{
-              name: 'pages',
-              label: 'Pages',
-              folder: 'content',
-              create: true,
-              fields: [
-                { label: 'Title', name: 'title', widget: 'string' },
-                { label: 'Body', name: 'body', widget: 'markdown' }
-              ]
-            }]
-          }
-        });
-      } else {
-        console.error('CMS library not loaded');
+    CMS.init({
+      config: {
+        backend: {
+          name: 'github',
+          repo: 'aroy2010/peregrino-memoria',
+          branch: 'main',
+          auth_endpoint: '/api/auth'
+        },
+        collections: [{
+          name: 'pages',
+          label: 'Pages',
+          folder: 'content',
+          create: true,
+          fields: [
+            { label: 'Title', name: 'title', widget: 'string' },
+            { label: 'Body', name: 'body', widget: 'markdown' }
+          ]
+        }]
       }
     });
   </script>
