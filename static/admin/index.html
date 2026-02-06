@@ -8,37 +8,33 @@
 <body>
   <div id="nc-root"></div>
   
-  <!-- Decap CMS v3 CDN -->
-  <script src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
-  <script src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
-  <script src="https://unpkg.com/decap-cms-app@3.3.5/dist/decap-cms-app.js"></script>
-  
+  <script src="https://unpkg.com/decap-cms@3.0.12/dist/decap-cms.js"></script>
   <script>
-    window.addEventListener('load', () => {
-      if (window.DecapCmsApp) {
-        DecapCmsApp.init({
+    document.addEventListener('DOMContentLoaded', function() {
+      if (typeof CMS !== 'undefined') {
+        CMS.init({
           config: {
             backend: {
-              name: "github",
-              repo: "aroy2010/peregrino-memoria",
-              branch: "main"
+              name: 'github',
+              repo: 'aroy2010/peregrino-memoria',
+              branch: 'main'
             },
-            media_folder: "static/img",
-            public_folder: "/img",
+            media_folder: 'static/img',
+            public_folder: '/img',
             collections: [{
-              name: "pages",
-              label: "Pages",
-              folder: "content",
+              name: 'pages',
+              label: 'Pages',
+              folder: 'content',
               create: true,
               fields: [
-                { label: "Title", name: "title", widget: "string" },
-                { label: "Body", name: "body", widget: "markdown" }
+                { label: 'Title', name: 'title', widget: 'string' },
+                { label: 'Body', name: 'body', widget: 'markdown' }
               ]
             }]
           }
         });
       } else {
-        console.error('DecapCmsApp not loaded');
+        console.error('CMS library not loaded');
       }
     });
   </script>
