@@ -8,20 +8,24 @@
 <body>
   <div id="nc-root"></div>
   
-  <script src="https://unpkg.com/decap-cms@3.3.5/dist/decap-cms.js"></script>
+  <!-- Decap CMS v3 CDN -->
+  <script src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
+  <script src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
+  <script src="https://unpkg.com/decap-cms-app@3.3.5/dist/decap-cms-app.js"></script>
+  
   <script>
-    window.onload = function() {
-      CMS.init({
-        config: {
-          backend: {
-            name: "github",
-            repo: "aroy2010/peregrino-memoria",
-            branch: "main"
-          },
-          media_folder: "static/img",
-          public_folder: "/img",
-          collections: [
-            {
+    window.addEventListener('load', () => {
+      if (window.DecapCmsApp) {
+        DecapCmsApp.init({
+          config: {
+            backend: {
+              name: "github",
+              repo: "aroy2010/peregrino-memoria",
+              branch: "main"
+            },
+            media_folder: "static/img",
+            public_folder: "/img",
+            collections: [{
               name: "pages",
               label: "Pages",
               folder: "content",
@@ -30,22 +34,13 @@
                 { label: "Title", name: "title", widget: "string" },
                 { label: "Body", name: "body", widget: "markdown" }
               ]
-            },
-            {
-              name: "posts",
-              label: "Posts",
-              folder: "content/posts",
-              create: true,
-              fields: [
-                { label: "Title", name: "title", widget: "string" },
-                { label: "Publish Date", name: "date", widget: "datetime" },
-                { label: "Body", name: "body", widget: "markdown" }
-              ]
-            }
-          ]
-        }
-      });
-    };
+            }]
+          }
+        });
+      } else {
+        console.error('DecapCmsApp not loaded');
+      }
+    });
   </script>
 </body>
 </html>
